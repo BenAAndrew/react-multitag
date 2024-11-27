@@ -1,0 +1,21 @@
+.taglist-tag {
+  padding: 4px 8px;
+  border: 1px solid #007bff;
+  border-radius: 12px;
+  background: #e7f3ff;
+  color: #007bff;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.taglist-tag--selected {
+  background: #007bff;
+  color: #fff;
+}
+
+.taglist-tag-close {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+}

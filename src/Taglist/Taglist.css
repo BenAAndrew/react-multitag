@@ -1,0 +1,14 @@
+.taglist-container {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.taglist-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
