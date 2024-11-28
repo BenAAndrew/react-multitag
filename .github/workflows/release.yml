@@ -1,4 +1,4 @@
-name: Publish Package and Create GitHub Release
+name: Publish Package
 
 on:
   push:
@@ -31,15 +31,3 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # Create a GitHub Release
-      - name: Create GitHub Release
-        uses: comnoco/create-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: 'This is the release of version ${{ github.ref }}.'
-          draft: false
-          prerelease: false
