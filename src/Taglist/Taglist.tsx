@@ -37,11 +37,10 @@ const Taglist = ({
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     const inputElement = inputRef.current;
 
-    if (separators.includes(e.key) && inputValue.trim()) {
+    if (separators.includes(e.key) && inputValue.trim() && !value.includes(inputValue.trim())) {
       e.preventDefault();
-      if (inputValue.trim()) {
-        addTag(inputValue.trim());
-      }
+      onChange([...value, inputValue.trim()]);
+      setInputValue("");
     }
 
     if (selectedIndex !== -1) {
@@ -68,13 +67,6 @@ const Taglist = ({
     } else if (inputElement?.selectionStart === 0 && e.key === "Backspace") {
       removeTag(value.length - 1);
     }
-  };
-
-  const addTag = (tag: string): void => {
-    if (!value.includes(tag)) {
-      onChange([...value, tag]);
-    }
-    setInputValue("");
   };
 
   const removeTag = (index: number): void => {
