@@ -8,7 +8,7 @@ import React, {
 import "./Taglist.css";
 import { Tag, TagProps } from "../Tag";
 
-type TaglistProps = {
+type TaglistProps = React.InputHTMLAttributes<HTMLInputElement> & {
   value: string[];
   onChange: (tags: string[]) => void;
   TagComponent?: ComponentType<TagProps>;
@@ -24,6 +24,7 @@ const Taglist = ({
   separators = ["Enter", ","],
   containerClassName,
   inputClassName,
+  ...props
 }: TaglistProps) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
@@ -101,6 +102,7 @@ const Taglist = ({
         value={inputValue}
         onChange={handleInputChange}
         className={`taglist-input ${inputClassName ? inputClassName : ""}`}
+        {...props}
       />
     </div>
   );
