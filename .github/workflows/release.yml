@@ -34,9 +34,10 @@ jobs:
 
       # Create a GitHub Release
       - name: Create GitHub Release
-        uses: gh-cli/gh-release-action@v1
+        uses: comnoco/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: 'This is the release of version ${{ github.ref }}.'
