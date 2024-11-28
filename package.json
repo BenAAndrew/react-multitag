@@ -1,5 +1,6 @@
 {
-  "name": "react-taglist",
+  "name": "react-multitag",
+  "description": "A simple and lightweight tag list input component with keyboard navigation",
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
@@ -11,13 +12,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BenAAndrew/react-taglist.git"
+    "url": "git+https://github.com/BenAAndrew/react-multitag.git"
   },
   "keywords": [
     "react",
     "component",
     "tags",
     "tags input",
+    "keyboard",
     "input"
   ],
   "scripts": {
