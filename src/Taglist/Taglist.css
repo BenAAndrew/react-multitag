@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  height: 33px;
+  min-height: 33px;
 }
 
 .taglist-input {
