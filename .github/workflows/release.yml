@@ -1,0 +1,44 @@
+name: Publish Package and Create GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # This triggers the workflow only when a tag starting with 'v' (like 'v1.0.0') is pushed
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org/'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm
+        run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Create a GitHub Release
+      - name: Create GitHub Release
+        uses: gh-cli/gh-release-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: 'This is the release of version ${{ github.ref }}.'
+          draft: false
+          prerelease: false
