@@ -8,7 +8,7 @@ import React, {
 import "./Taglist.css";
 import { Tag, TagProps } from "../Tag";
 
-type TaglistProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type TaglistProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
   value: string[];
   onChange: (tags: string[]) => void;
   TagComponent?: ComponentType<TagProps>;
