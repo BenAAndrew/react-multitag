@@ -13,6 +13,19 @@ const Taglist = ({
   TagComponent = Tag,
   separators = defaultSeperators,
   ...props
-}: TaglistProps) => (navigationMode === "tag" ? <TagNavigation TagComponent={TagComponent} separators={separators} {...props} /> :  <InputNavigation TagComponent={TagComponent} separators={separators} {...props} />);
+}: TaglistProps) =>
+  navigationMode === "tag" ? (
+    <TagNavigation
+      TagComponent={TagComponent}
+      separators={separators}
+      {...props}
+    />
+  ) : (
+    <InputNavigation
+      TagComponent={TagComponent}
+      separators={separators}
+      {...props}
+    />
+  );
 
 export { Taglist };

@@ -1,12 +1,6 @@
-import React, {
-  useState,
-  useRef,
-  KeyboardEvent,
-  ChangeEvent,
-} from "react";
+import React, { useState, useRef, KeyboardEvent, ChangeEvent } from "react";
 import "./TagNavigation.css";
 import { TaglistMethodProps } from "../types";
-
 
 const TagNavigation = ({
   value,
@@ -28,7 +22,11 @@ const TagNavigation = ({
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     const inputElement = inputRef.current;
 
-    if (separators.includes(e.key) && inputValue.trim() && !value.includes(inputValue.trim())) {
+    if (
+      separators.includes(e.key) &&
+      inputValue.trim() &&
+      !value.includes(inputValue.trim())
+    ) {
       e.preventDefault();
       onChange([...value, inputValue.trim()]);
       setInputValue("");

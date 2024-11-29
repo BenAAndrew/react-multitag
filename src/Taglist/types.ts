@@ -1,7 +1,10 @@
 import { ComponentType } from "react";
 import { TagProps } from "../Tag";
 
-export type TaglistProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
+export type TaglistProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "onChange"
+> & {
   value: string[];
   onChange: (tags: string[]) => void;
   navigationMode?: "tag" | "input";
@@ -11,7 +14,10 @@ export type TaglistProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'on
   inputClassName?: string;
 };
 
-export type TaglistMethodProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
+export type TaglistMethodProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "onChange"
+> & {
   value: string[];
   onChange: (tags: string[]) => void;
   TagComponent: ComponentType<TagProps>;
