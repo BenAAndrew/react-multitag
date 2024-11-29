@@ -1,0 +1,17 @@
+.taglist-input-navigate-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.taglist-input-navigate-input--default {
+  flex: 1;
+}
+
+.taglist-hidden-span {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  font-size: inherit;
+  font-family: inherit;
+}

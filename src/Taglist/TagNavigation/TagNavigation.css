@@ -1,0 +1,6 @@
+.taglist-input-navigate-tag {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+}

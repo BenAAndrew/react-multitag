@@ -7,10 +7,3 @@
   gap: 4px;
   min-height: 33px;
 }
-
-.taglist-input {
-  border: none;
-  outline: none;
-  flex-grow: 1;
-  font-size: 16px;
-}

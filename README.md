@@ -29,6 +29,7 @@ export default Example;
 **This extends all default HTML input props** (which control the text input element)
 | Prop                              | Description                                                                     | Type                      |
 | -------------------               | ------------------------------------------------------------------------------- | ------------------------- |
+| `navigationMode`                           | How the keyboard navigation should behave: <ul><li>**tags** (default): Navigate through tags and delete with 'Backspace'</li><li>**input**: Move the input position to add new elements between existing ones</li></ul>                                                                | `string[]`                |
 | `value`                           | Current tag list                                                                | `string[]`                |
 | `onChange`                        | Callback with new tag list                                                      | `string[]`                |
 | `TagComponent` (optional)         | Custom component for the tag element (implementing the TagProps interface)      | `ComponentType<TagProps>` |
