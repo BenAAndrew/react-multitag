@@ -1,6 +1,6 @@
 {
   "name": "react-multitag",
-  "description": "A simple and lightweight tag list input component with keyboard navigation",
+  "description": "A simple and lightweight tag list input component with advanced keyboard navigation",
   "version": "1.1.0",
   "type": "module",
   "license": "MIT",
