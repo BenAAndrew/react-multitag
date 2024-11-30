@@ -12,6 +12,7 @@ export type TaglistProps = Omit<
   separators?: string[];
   containerClassName?: string;
   inputClassName?: string;
+  onDuplicate?: (tag: string) => void;
 };
 
 export type TaglistMethodProps = Omit<
@@ -24,4 +25,5 @@ export type TaglistMethodProps = Omit<
   separators: string[];
   containerClassName?: string;
   inputClassName?: string;
+  onDuplicate?: (tag: string) => void;
 };

@@ -15,6 +15,7 @@ const InputNavigation = ({
   separators,
   containerClassName,
   inputClassName,
+  onDuplicate,
   ...props
 }: TaglistMethodProps) => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -30,20 +31,20 @@ const InputNavigation = ({
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     const inputElement = inputRef.current;
 
-    if (
-      separators.includes(e.key) &&
-      inputValue.trim() &&
-      !value.includes(inputValue.trim())
-    ) {
+    if (separators.includes(e.key) && inputValue.trim()) {
       e.preventDefault();
-      if (selectedIndex === -1) {
-        onChange([...value, inputValue.trim()]);
-      } else {
-        value.splice(selectedIndex, 0, inputValue.trim());
-        onChange(value);
-        setSelectedIndex(selectedIndex + 1);
+      if (!value.includes(inputValue.trim())) {
+        if (selectedIndex === -1) {
+          onChange([...value, inputValue.trim()]);
+        } else {
+          value.splice(selectedIndex, 0, inputValue.trim());
+          onChange(value);
+          setSelectedIndex(selectedIndex + 1);
+        }
+        setInputValue("");
+      } else if (onDuplicate) {
+        onDuplicate(inputValue.trim());
       }
-      setInputValue("");
     }
 
     if (

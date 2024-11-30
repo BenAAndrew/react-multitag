@@ -9,6 +9,7 @@ const TagNavigation = ({
   separators,
   containerClassName,
   inputClassName,
+  onDuplicate,
   ...props
 }: TaglistMethodProps) => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -22,14 +23,14 @@ const TagNavigation = ({
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     const inputElement = inputRef.current;
 
-    if (
-      separators.includes(e.key) &&
-      inputValue.trim() &&
-      !value.includes(inputValue.trim())
-    ) {
+    if (separators.includes(e.key) && inputValue.trim()) {
       e.preventDefault();
-      onChange([...value, inputValue.trim()]);
-      setInputValue("");
+      if (!value.includes(inputValue.trim())) {
+        onChange([...value, inputValue.trim()]);
+        setInputValue("");
+      } else if (onDuplicate) {
+        onDuplicate(inputValue.trim());
+      }
     }
 
     if (selectedIndex !== -1) {
